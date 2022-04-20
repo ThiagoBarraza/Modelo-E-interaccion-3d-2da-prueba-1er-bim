@@ -11,9 +11,19 @@ public class Helado : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(CodigoHelado == "CHO" || CodigoHelado == "FRU" || CodigoHelado == "DDL" && CantidadHelado <= 250 && CantidadHelado <= 3000)
+        
+
+        if (CodigoHelado == "CHO" && CantidadHelado >= 250 && CantidadHelado <= 3000 || CodigoHelado == "FRU" && CantidadHelado >= 250 && CantidadHelado <= 3000 || CodigoHelado == "DDL" && CantidadHelado >= 250 && CantidadHelado <= 3000)
         {
             float Precio = CantidadHelado / 2;
+            
+
+            if(CodigoHelado == "FRU")
+            {
+                Precio = Precio - (Precio / 10);
+            }
+
+            Debug.Log("Usted debe pagar " + Precio + "$");
         }
         else
         {
